@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced 3D World with Realistic Humans and First-Person Mode</title>
+    <!-- PWA: manifest + theme color -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#000000">
+    <!-- End PWA -->
     <style>
         /* Existing styles remain unchanged */
         body {
@@ -7531,6 +7535,15 @@
         
         // Initialize the scene when the page loads
         window.addEventListener('load', init);
+    </script>
+<script>
+      (function () {
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/sw.js').catch(function(){});
+          });
+        }
+      })();
     </script>
 </body>
 </html>
